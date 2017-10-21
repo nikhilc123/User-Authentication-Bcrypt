@@ -1,0 +1,8 @@
+<% if !current_user.nil? %>
+  <br><h2>Welcome <%= current_user.name %></h2>
+    <h3>PROFILE</h3><br>
+    <h4>Email: <%= current_user.email %></h4>
+<% else %>
+    <h2>Welcome Guest!</h2>
+  <%= link_to "Create an Account", new_user_path, class: "btn btn-primary" %>
+<% end %>

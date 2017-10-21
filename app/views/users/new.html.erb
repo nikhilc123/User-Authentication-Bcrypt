@@ -1,0 +1,19 @@
+<br><div class="card register-card">
+  <div class="card-header">
+    <h2 class="card-heading">Register</h2>
+  </div>
+  <div class="card-block">
+    <% if @user.errors.any? %>
+        <div class="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prevented this record from being saved:</h2>
+          <ul class="user-errors"}>
+            <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <%end%>
+    <%# pass user: @user, because if you use user: nil then the _form will crash %>
+    <%= render 'form', user: @user %>
+  </div>
+</div>

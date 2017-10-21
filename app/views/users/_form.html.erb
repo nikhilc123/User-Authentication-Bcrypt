@@ -1,0 +1,19 @@
+<%= form_for @user do |f| %>
+    <div class="form-group">
+      <%= f.text_field :name, class: "form-control", placeholder: "Name" %><br>
+    </div>
+
+    <div class="form-group">
+      <%= f.text_field :email, class: "form-control", placeholder: "Email"%><br>
+    </div>
+
+    <div class="form-group">
+      <%= f.password_field :password, class:"form-control", placeholder: "Password" %><br>
+    </div>
+
+    <div class="form-group">
+      <%= f.password_field :password_confirmation, class:"form-control", placeholder: "Password Confirmation" %><br>
+    </div>
+
+    <%= f.submit "Create Account", class: "btn btn-primary"%>
+<% end %>
