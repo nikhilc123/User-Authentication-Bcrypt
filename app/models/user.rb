@@ -4,19 +4,24 @@ class User < ApplicationRecord
   #include BCrypt OR BCrypt::Password.create in password=value method
   #BCrypt::Password.create(value) doesn't create string even though its ""
 
-  def password=(value)
-    @password = value
-    self.password_digest = BCrypt::Password.create(value)
-  end
+  has_secure_password
 
-  def password
-    @password
-  end
+  #has_secure_password is a rails helper which substitutes
+  #all the method which are written down!
 
-  def valid_password?(current_password)
-    #"asdfasfsd!4324f" == "asdf"
-    # In other words, Hash digest == value
-    #check the github page
-    BCrypt::Password.new(password_digest) == current_password
-  end
+  # def password=(value)
+  #   @password = value
+  #   self.password_digest = BCrypt::Password.create(value)
+  # end
+  # 
+  # def password
+  #   @password
+  # end
+  # 
+  # def valid_password?(current_password)
+  #   #"asdfasfsd!4324f" == "asdf"
+  #   # In other words, Hash digest == value
+  #   #check the github page
+  #   BCrypt::Password.new(password_digest) == current_password
+  # end
 end
